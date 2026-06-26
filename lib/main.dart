@@ -1,16 +1,15 @@
 // lib/main.dart
-// ✅ ALL-IN-ONE FILE: AuthService + AuthGate + App entry point
-// No separate auth_service.dart needed!
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/data/latest.dart' as tz;
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'services/alarm_service.dart';
 import 'screens/auth_screen.dart';
 import 'screens/home_screen.dart';
 
 // ═══════════════════════════════════════════════════════════════
-// AUTH SERVICE — lives here, no separate file needed
+// AUTH SERVICE
 // ═══════════════════════════════════════════════════════════════
 class AuthService {
   static Future<bool> isLoggedIn() async {
@@ -97,6 +96,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   tz.initializeTimeZones();
   await AlarmService.initialize();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const HealthMonitorApp());
 }
 
@@ -127,7 +129,6 @@ class HealthMonitorApp extends StatelessWidget {
   }
 }
 
-// ── Shows Login or Home based on saved login state ────────────────
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
 
