@@ -1,0 +1,69 @@
+name: health_monitor
+description: Health Monitoring App - Full Featured
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Firebase
+  firebase_core: ^2.27.0
+  firebase_auth: ^4.17.0
+  cloud_firestore: ^4.15.0
+  google_sign_in: ^6.2.1
+
+  # Notifications & Alarms
+  flutter_local_notifications: ^17.0.0
+  timezone: ^0.9.4
+
+  # Voice
+  speech_to_text: ^6.6.0
+  flutter_tts: ^3.8.5
+
+  # Charts
+  fl_chart: ^0.68.0
+
+  # Networking
+  http: ^1.2.0
+
+  # Storage
+  shared_preferences: ^2.2.3
+
+  # Permissions + Location
+  permission_handler: ^11.3.1
+  geolocator: ^11.0.0
+
+  # Maps & Launch
+  url_launcher: ^6.2.6
+
+  # File & Image
+  image_picker: ^1.0.7
+  file_picker: ^6.1.1
+
+  # Step Counter (web-safe — gracefully degrades)
+  pedometer: ^4.0.2
+
+  # Utilities
+  intl: ^0.19.0
+  uuid: ^4.4.0
+  provider: ^6.1.2
+  cupertino_icons: ^1.0.6
+
+  # NOTE: Add these ONLY when building for Android/iOS:
+  # sensors_plus: ^4.0.2   (fall detection)
+  # health: ^10.2.0        (smartwatch sync)
+  # camera: ^0.10.5+9      (PPG heart rate)
+  # workmanager: ^0.5.2    (background tasks)
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true

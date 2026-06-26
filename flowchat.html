@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Health Monitor App – Flowchart</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0f172a; font-family: 'Segoe UI', sans-serif; padding: 30px; color: #e2e8f0; }
+  h1 { text-align: center; font-size: 26px; margin-bottom: 6px; color: #38bdf8; letter-spacing: 1px; }
+  .subtitle { text-align: center; color: #94a3b8; margin-bottom: 40px; font-size: 14px; }
+
+  .flow { display: flex; flex-direction: column; align-items: center; gap: 0; }
+
+  .node {
+    border-radius: 14px;
+    padding: 14px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    min-width: 220px;
+    max-width: 320px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+  .start    { background: linear-gradient(135deg,#6366f1,#818cf8); color: #fff; border-radius: 50px; }
+  .screen   { background: linear-gradient(135deg,#0ea5e9,#38bdf8); color: #fff; }
+  .process  { background: linear-gradient(135deg,#10b981,#34d399); color: #fff; }
+  .decision { background: linear-gradient(135deg,#f59e0b,#fbbf24); color: #1e293b; transform: rotate(0deg); border-radius: 6px; }
+  .action   { background: linear-gradient(135deg,#ec4899,#f472b6); color: #fff; }
+  .external { background: linear-gradient(135deg,#8b5cf6,#a78bfa); color: #fff; }
+  .end      { background: linear-gradient(135deg,#ef4444,#f87171); color: #fff; border-radius: 50px; }
+
+  .arrow { width: 2px; height: 30px; background: #475569; position: relative; display: flex; justify-content: center; }
+  .arrow::after { content: '▼'; position: absolute; bottom: -10px; color: #64748b; font-size: 14px; }
+
+  .branch { display: flex; gap: 30px; align-items: flex-start; justify-content: center; margin: 0; }
+  .branch-col { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .branch-label { font-size: 11px; color: #94a3b8; margin: 4px 0; }
+
+  .h-line { height: 2px; background: #475569; width: 200px; margin: 28px 0 0 0; }
+  .connector { display: flex; align-items: flex-start; justify-content: center; }
+  .connector .v { width: 2px; background: #475569; }
+
+  .features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .feat-card { background: #1e293b; border-radius: 14px; padding: 18px; border-left: 4px solid; }
+  .feat-card h3 { font-size: 14px; margin-bottom: 8px; }
+  .feat-card ul { font-size: 12px; color: #94a3b8; padding-left: 16px; line-height: 2; }
+  .f1 { border-color: #38bdf8; } .f1 h3 { color: #38bdf8; }
+  .f2 { border-color: #34d399; } .f2 h3 { color: #34d399; }
+  .f3 { border-color: #f472b6; } .f3 h3 { color: #f472b6; }
+  .f4 { border-color: #a78bfa; } .f4 h3 { color: #a78bfa; }
+
+  .tech-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 30px; }
+  .tech-badge { background: #1e293b; border: 1px solid #334155; border-radius: 50px; padding: 8px 18px; font-size: 12px; color: #cbd5e1; }
+
+  .section-title { text-align: center; font-size: 16px; font-weight: 700; color: #38bdf8; margin: 40px 0 16px; }
+</style>
+</head>
+<body>
+
+<h1>🏥 Health Monitor App</h1>
+<p class="subtitle">Complete App Flowchart — All 4 Features</p>
+
+<div class="flow">
+
+  <div class="node start">🚀 App Launch</div>
+  <div class="arrow"></div>
+
+  <div class="node screen">🔐 Login / Register Screen</div>
+  <div class="arrow"></div>
+
+  <div class="node screen">🏠 Home Dashboard</div>
+  <div class="arrow"></div>
+
+  <!-- 4 branch features -->
+  <div style="display:flex; gap:20px; align-items:flex-start; justify-content:center; position:relative;">
+
+    <div style="display:flex; flex-direction:column; align-items:center; gap:0;">
+      <div class="branch-label">💊 Feature 1</div>
+      <div class="node process" style="min-width:180px; font-size:13px;">Medicine Alarm</div>
+      <div class="arrow"></div>
+      <div class="node decision" style="min-width:180px; font-size:12px;">User sets time?</div>
+      <div class="arrow"></div>
+      <div class="node action" style="min-width:180px; font-size:12px;">🔔 Trigger Alarm Notification</div>
+      <div class="arrow"></div>
+      <div class="node process" style="min-width:180px; font-size:12px;">✅ Mark as Taken</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; align-items:center; gap:0;">
+      <div class="branch-label">🎙️ Feature 2</div>
+      <div class="node process" style="min-width:180px; font-size:13px;">Voice Assistant</div>
+      <div class="arrow"></div>
+      <div class="node action" style="min-width:180px; font-size:12px;">🎤 Listen to User</div>
+      <div class="arrow"></div>
+      <div class="node external" style="min-width:180px; font-size:12px;">OpenAI API Call</div>
+      <div class="arrow"></div>
+      <div class="node process" style="min-width:180px; font-size:12px;">🔊 Speak Response</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; align-items:center; gap:0;">
+      <div class="branch-label">📊 Feature 3</div>
+      <div class="node process" style="min-width:180px; font-size:13px;">Health Monitor</div>
+      <div class="arrow"></div>
+      <div class="node action" style="min-width:180px; font-size:12px;">📥 Input Health Data</div>
+      <div class="arrow"></div>
+      <div class="node process" style="min-width:180px; font-size:12px;">📈 Show Charts</div>
+      <div class="arrow"></div>
+      <div class="node decision" style="min-width:180px; font-size:12px;">Alert threshold?</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; align-items:center; gap:0;">
+      <div class="branch-label">📞 Feature 4</div>
+      <div class="node process" style="min-width:180px; font-size:13px;">Auto Phone Call</div>
+      <div class="arrow"></div>
+      <div class="node decision" style="min-width:180px; font-size:12px;">Medicine missed?</div>
+      <div class="arrow"></div>
+      <div class="node external" style="min-width:180px; font-size:12px;">Twilio API Call</div>
+      <div class="arrow"></div>
+      <div class="node action" style="min-width:180px; font-size:12px;">📱 Call Patient Phone</div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Feature Cards -->
+<p class="section-title">📋 Feature Breakdown</p>
+<div class="features">
+  <div class="feat-card f1">
+    <h3>💊 Medicine Alarm</h3>
+    <ul>
+      <li>User inputs medicine name + time</li>
+      <li>Scheduled local notification</li>
+      <li>Repeats daily automatically</li>
+      <li>Mark as taken / snooze option</li>
+    </ul>
+  </div>
+  <div class="feat-card f2">
+    <h3>🎙️ Voice Assistant</h3>
+    <ul>
+      <li>Tap mic → speak your question</li>
+      <li>Speech-to-text converts voice</li>
+      <li>OpenAI GPT answers health queries</li>
+      <li>Text-to-speech reads response aloud</li>
+    </ul>
+  </div>
+  <div class="feat-card f3">
+    <h3>📊 Health Monitor</h3>
+    <ul>
+      <li>Input: BP, pulse, sugar, temperature</li>
+      <li>Live charts with FL Chart library</li>
+      <li>Alert if values exceed safe range</li>
+      <li>History log of all readings</li>
+    </ul>
+  </div>
+  <div class="feat-card f4">
+    <h3>📞 Auto Phone Call</h3>
+    <ul>
+      <li>If medicine missed → auto trigger</li>
+      <li>Twilio dials the patient's number</li>
+      <li>Recorded voice message plays</li>
+      <li>Works on ANY phone (no smartphone needed)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Tech Stack -->
+<p class="section-title">🛠️ Tech Stack Used</p>
+<div class="tech-row">
+  <span class="tech-badge">🎯 Flutter (Dart)</span>
+  <span class="tech-badge">🔔 flutter_local_notifications</span>
+  <span class="tech-badge">🎙️ speech_to_text</span>
+  <span class="tech-badge">🔊 flutter_tts</span>
+  <span class="tech-badge">📊 fl_chart</span>
+  <span class="tech-badge">📞 Twilio REST API</span>
+  <span class="tech-badge">🤖 OpenAI GPT API</span>
+  <span class="tech-badge">💾 SharedPreferences</span>
+  <span class="tech-badge">🌐 http package</span>
+  <span class="tech-badge">🔑 permission_handler</span>
+</div>
+
+</body>
+</html>
